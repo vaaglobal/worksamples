@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saturday 3: Strategy Development in Digital Marketing — VAA Global 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&family=Literata:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black:          #070b08;
+    --black-mid:      #0e160e;
+    --card:           #121b12;
+    --card-deep:      #0c140c;
+    --green:          #1a5c3a;
+    --green-bright:   #2e9e62;
+    --green-pale:     rgba(46,158,98,0.08);
+    --white:          #f2f5f0;
+    --muted:          #7a9080;
+    --border:         rgba(46,158,98,0.18);
+    --border-dim:     rgba(255,255,255,0.07);
+    --gold:           #c97b2a;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Literata', Georgia, serif;
+    font-size: 18px; line-height: 1.75;
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    position:relative; background:var(--black-mid);
+    padding:72px 48px 64px; border-bottom:1px solid var(--border); overflow:hidden;
+  }
+  .hero::before {
+    content:''; position:absolute; top:-140px; right:-80px;
+    width:560px; height:560px;
+    background:radial-gradient(circle, rgba(26,92,58,0.3) 0%, transparent 68%);
+    pointer-events:none;
+  }
+  .badge {
+    display:inline-block; background:rgba(46,158,98,0.1);
+    border:1px solid rgba(46,158,98,0.4); color:var(--green-bright);
+    font-family:'Bricolage Grotesque',sans-serif;
+    font-size:12px; font-weight:700; letter-spacing:3px; text-transform:uppercase;
+    padding:7px 18px; border-radius:2px; margin-bottom:28px;
+  }
+  .hero h1 {
+    font-family:'Bricolage Grotesque',sans-serif;
+    font-size:clamp(38px,6vw,72px); font-weight:800;
+    line-height:1.0; letter-spacing:-2px; margin-bottom:22px;
+  }
+  .hero h1 span { color:var(--green-bright); }
+  .hero p.subtitle {
+    font-size:20px; color:var(--muted);
+    max-width:640px; font-weight:300; font-style:italic; line-height:1.65;
+  }
+  .toc { display:flex; flex-wrap:wrap; gap:10px; margin-top:36px; }
+  .toc a {
+    background:transparent; border:1px solid rgba(255,255,255,0.12);
+    color:var(--white); text-decoration:none;
+    font-size:13px; font-family:'Bricolage Grotesque',sans-serif;
+    font-weight:600; letter-spacing:0.5px; padding:8px 18px;
+    border-radius:2px; transition:all 0.2s;
+  }
+  .toc a:hover { background:var(--green); border-color:var(--green); color:#fff; }
+
+  /* JOB DEMAND BANNER */
+  .jd-banner {
+    background:linear-gradient(135deg,#0f1e12,#0a1a0f);
+    border-bottom:1px solid rgba(46,158,98,0.2);
+    padding:24px 48px;
+  }
+  .jd-banner-inner { max-width:920px; margin:0 auto; display:flex; gap:20px; flex-wrap:wrap; align-items:flex-start; }
+  .jd-label {
+    font-family:'Bricolage Grotesque',sans-serif;
+    font-size:11px; font-weight:700; letter-spacing:3px;
+    text-transform:uppercase; color:var(--green-bright); flex-shrink:0; padding-top:3px;
+  }
+  .jd-banner p { font-size:15px; color:#c5d4c8; font-style:italic; line-height:1.65; flex:1; }
+  .jd-banner strong { color:var(--white); font-style:normal; font-weight:500; }
+
+  /* CLIENT BANNER */
+  .client-banner {
+    background:linear-gradient(135deg,#0a1f14,#061208);
+    border-bottom:2px solid var(--green);
+    padding:20px 48px;
+  }
+  .client-banner-inner {
+    max-width:920px; margin:0 auto;
+    display:flex; align-items:center; gap:20px; flex-wrap:wrap;
+  }
+  .client-pill {
+    background:var(--green); color:#fff;
+    font-family:'Bricolage Grotesque',sans-serif;
+    font-size:11px; font-weight:800; letter-spacing:2px; text-transform:uppercase;
+    padding:6px 14px; border-radius:2px; flex-shrink:0;
+  }
+  .client-banner p { font-size:15px; color:#c5d4c8; flex:1; line-height:1.6; }
+  .client-banner a { color:var(--green-bright); text-decoration:none; font-weight:500; }
+  .client-banner a:hover { text-decoration:underline; }
+
+  /* LAYOUT */
+  .container { max-width:920px; margin:0 auto; padding:0 28px; }
+  .section { padding:80px 0 64px; border-bottom:1px solid rgba(255,255,255,0.05); }
+  .section-label { display:flex; align-items:center; gap:14px; margin-bottom:14px; }
+  .section-num {
+    width:40px; height:40px; border-radius:2px; background:var(--green); color:#fff;
+    font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:16px;
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .section-tag {
+    font-family:'Bricolage Grotesque',sans-serif;
+    font-size:12px; font-weight:700; letter-spacing:3px;
+    text-transform:uppercase; color:var(--green-bright);
+  }
+  .section h2 {
+    font-family:'Bricolage Grotesque',sans-serif;
+    font-size:clamp(28px,4.5vw,50px); font-weight:800;
+    letter-spacing:-1px; margin-bottom:18px; line-height:1.05;
+  }
+  .lead { color:var(--muted); font-size:19px; max-width:720px; margin-bottom:40px; line-height:1.7; }
+  .divider { width:48px; height:3px; background:var(--green-bright); border-radius:2px; margin:18px 0 28px; }
+
+  /* JD CALLOUT */
+  .jd-callout {
+    background:linear-gradient(135deg,rgba(26,92,58,0.1),rgba(46,158,98,0.05));
+    border:1px solid rgba(46,158,98,0.25); border-left:3px solid var(--green-bright);
+    border-radius:0 6px 6px 0; padding:18px 24px; margin:28px 0;
+  }
+  .jd-callout .jdc-label {
+    font-family:'Bricolage Grotesque',sans-serif; font-size:11px; font-weight:700;
+    letter-spacing:3px; text-transform:uppercase; color:var(--green-bright); margin-bottom:8px;
+  }
+  .jd-callout p { font-size:16px; color:#c5d4c8; line-height:1.65; }
+  .jd-callout strong { color:var(--white); font-weight:500; }
+
+  /* ANALOGY */
+  .analogy {
+    background:linear-gradient(135deg,rgba(26,92,58,0.12),rgba(46,158,98,0.05));
+    border-left:3px solid var(--green-bright); padding:22px 28px;
+    margin:30px 0; border-radius:0 6px 6px 0;
+  }
+  .analogy p { font-size:18px; color:var(--white); font-style:italic; line-height:1.7; }
+  .analogy strong { color:var(--green-bright); font-style:normal; }
+
+  /* CASE STUDY */
+  .case-study {
+    background:var(--card); border:1px solid rgba(46,158,98,0.2);
+    border-radius:4px; padding:32px; margin:32px 0;
+    position:relative; overflow:hidden;
+  }
+  .case-study::before {
+    content:'CASE STUDY'; position:absolute; top:18px; right:22px;
+    font-family:'Bricolage Grotesque',sans-serif;
+    font-size:10px; font-weight:700; letter-spacing:3px;
+    color:var(--green-bright); opacity:0.45;
+  }
+  .case-study h4 {
+    font-family:'Bricolage Grotesque',sans-serif;
+    font-size:20px; font-weight:700; color:var(--green-bright);
+    margin-bottom:14px; padding-right:100px; line-height:1.3;
+  }
+  .case-study > p { font-size:17px; line-height:1.75; color:#c5d4c8; }
+  .case-study strong { color:var(--white); font-weight:500; }
+  .cs-row {
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+    gap:14px; margin-top:20px;
+  }
+  .cs-box {
+    background:rgba(255,255,255,0.03); border:1px solid var(--border-dim);
+    border-radius:4px; padding:16px 18px;
+  }
+  .cs-label {
+    font-family:'Bricolage Grotesque',sans-serif;
+    font-size:11px; font-weight:700; letter-spacing:2px;
+    text-transform:uppercase; color:var(--muted); margin-bottom:6px;
+  }
+  .cs-box p { font-size:15px; color:var(--white); line-height:1.55; }
+
+  /* TAG */
+  .tag {
+    font-size:12px; font-family:'Bricolage Grotesque',sans-serif;
+    background:rgba(46,158,98,0.08); border:1px solid rgba(46,158,98,0.25);
+    color:var(--green-bright); padding:4px 11px; border-radius:2px;
+  }
+
+  /* TWO COL */
+  .two-col {
+    display:grid; grid-template-columns:1fr 1fr; gap:18px; margin:24px 0;
+  }
+  @media(max-width:620px){ .two-col{grid-template-columns:1fr;} }
+  .col-card {
+    background:var(--card); border:1px solid var(--border-dim);
+    border-radius:4px; padding:22px;
+  }
+  .col-card h4 {
+    font-family:'Bricolage Grotesque',sans-serif;
+    font-size:16px; font-weight:700; margin-bottom:10px;
+    color:var(--green-bright);
+  }
+  .col-card p { font-size:15px; color:var(--muted); line-height:1.65; }
+  .col-card ul { list-style:none; margin-top:10px; }
+  .col-card ul li {
+    font-size:15px; color:#c5d4c8; padding:5px 0;
+    border-bottom:1px solid rgba(255,255,255,0.04); line-height:1.5;
+  }
+  .col-card ul li:last-child { border-bottom:none; }
+  .col-card ul li::before { content:'—'; color:var(--green-bright); margin-right:8px; font-weight:700; }
+
+  /* STRATEGY STEPS */
+  .strategy-step {
+    display:grid; grid-template-columns:56px 1fr; gap:24px;
+    margin-bottom:32px; padding-bottom:32px;
+    border-bottom:1px solid rgba(255,255,255,0.05);
+  }
+  .strategy-step:last-child { border-bottom:none; margin-bottom:0; padding-bottom:0; }
+  .ss-num {
+    width:56px; height:56px; border-radius:2px;
+    background:var(--card); border:1px solid var(--green-bright);
+    color:var(--green-bright);
+    font-family:'Bricolage Grotesque',sans-serif;
+    font-weight:800; font-size:22px;
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .ss-content h3 {
+    font-family:'Bricolage Grotesque',sans-serif;
+    font-size:22px; font-weight:700; margin-bottom:10px; line-height:1.2;
+  }
+  .ss-content p { font-size:17px; color:var(--muted); line-height:1.7; margin-bottom:14px; }
+  .ss-content p:last-child { margin-bottom:0; }
+
+  /* VP TABLE */
+  .vp-table { width:100%; border-collapse:collapse; margin:28px 0; font-size:16px; }
+  .vp-table th {
+    background:rgba(46,158,98,0.08); border:1px solid var(--border);
+    padding:14px 18px; text-align:left;
+    font-family:'Bricolage Grotesque',sans-serif;
+    font-size:12px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--green-bright);
+  }
+  .vp-table td {
+    border:1px solid rgba(255,255,255,0.05); padding:16px 18px;
+    vertical-align:top; color:#c5d4c8; line-height:1.65; font-size:16px;
+  }
+  .vp-table tr:hover td { background:rgba(255,255,255,0.015); }
+
+  /* PERSONA */
+  .persona-wrap { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; margin:28px 0; }
+  .persona-card { background:var(--card); border:1px solid var(--border-dim); border-radius:4px; overflow:hidden; }
+  .persona-header {
+    background:var(--green); padding:16px 20px;
+    display:flex; align-items:center; gap:14px;
+  }
+  .persona-avatar {
+    width:44px; height:44px; border-radius:2px;
+    background:rgba(255,255,255,0.15);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Bricolage Grotesque',sans-serif; font-size:18px; font-weight:800; color:#fff;
+  }
+  .persona-header h4 { font-family:'Bricolage Grotesque',sans-serif; font-size:17px; font-weight:700; color:#fff; }
+  .persona-header span { font-size:13px; color:rgba(255,255,255,0.7); display:block; margin-top:2px; font-style:italic; }
+  .persona-body { padding:18px 20px; }
+  .persona-row { margin-bottom:12px; }
+  .persona-row:last-child { margin-bottom:0; }
+  .p-label {
+    font-family:'Bricolage Grotesque',sans-serif; font-size:10px; font-weight:700;
+    letter-spacing:2px; text-transform:uppercase; color:var(--muted); margin-bottom:4px;
+  }
+  .p-val { font-size:14.5px; color:var(--white); line-height:1.55; }
+
+  /* GOAL GRID */
+  .goal-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px; margin:24px 0; }
+  .goal-card {
+    background:var(--card); border:1px solid var(--border-dim);
+    border-radius:4px; padding:22px 20px; position:relative; overflow:hidden;
+  }
+  .goal-card::before {
+    content:attr(data-letter); position:absolute; top:-14px; right:14px;
+    font-family:'Bricolage Grotesque',sans-serif; font-size:64px; font-weight:800;
+    color:rgba(46,158,98,0.06); line-height:1; pointer-events:none;
+  }
+  .goal-card h4 { font-family:'Bricolage Grotesque',sans-serif; font-size:16px; font-weight:700; color:var(--green-bright); margin-bottom:8px; }
+  .goal-card p { font-size:15px; color:var(--muted); line-height:1.6; }
+  .goal-card .goal-ex {
+    margin-top:10px; font-size:14px; font-style:italic; color:var(--white);
+    border-left:2px solid var(--green-bright); padding-left:10px; line-height:1.55;
+  }
+
+  /* KPI TABLE */
+  .kpi-table { width:100%; border-collapse:collapse; margin:28px 0; font-size:15.5px; }
+  .kpi-table th {
+    background:rgba(46,158,98,0.08); border:1px solid var(--border); padding:12px 16px;
+    text-align:left; font-family:'Bricolage Grotesque',sans-serif;
+    font-size:12px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--green-bright);
+  }
+  .kpi-table td { border:1px solid rgba(255,255,255,0.05); padding:14px 16px; vertical-align:top; color:#c5d4c8; line-height:1.6; }
+  .kpi-table tr:hover td { background:rgba(255,255,255,0.015); }
+  .kpi-good {
+    display:inline-block; font-family:'Bricolage Grotesque',sans-serif;
+    font-size:11px; font-weight:700; letter-spacing:1px;
+    background:rgba(46,158,98,0.15); color:var(--green-bright);
+    border:1px solid rgba(46,158,98,0.3); padding:3px 10px; border-radius:2px;
+  }
+  .kpi-vanity {
+    display:inline-block; font-family:'Bricolage Grotesque',sans-serif;
+    font-size:11px; font-weight:700; letter-spacing:1px;
+    background:rgba(200,80,60,0.1); color:#e0826a;
+    border:1px solid rgba(200,80,60,0.25); padding:3px 10px; border-radius:2px;
+  }
+
+  /* ONE PAGE PLAN */
+  .opp-wrap { background:var(--card); border:1px solid rgba(46,158,98,0.25); border-radius:4px; overflow:hidden; margin:28px 0; }
+  .opp-header {
+    background:var(--green); padding:18px 28px;
+    display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px;
+  }
+  .opp-header h4 { font-family:'Bricolage Grotesque',sans-serif; font-size:18px; font-weight:700; color:#fff; }
+  .opp-header span { font-family:'Bricolage Grotesque',sans-serif; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.6); }
+  .opp-body { padding:28px; }
+  .opp-row { display:grid; grid-template-columns:190px 1fr; gap:20px; padding:16px 0; border-bottom:1px solid rgba(255,255,255,0.05); align-items:start; }
+  .opp-row:last-child { border-bottom:none; }
+  .opp-field { font-family:'Bricolage Grotesque',sans-serif; font-size:13px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--green-bright); padding-top:2px; }
+  .opp-value { font-size:16px; color:var(--white); line-height:1.65; }
+  .opp-value em { color:var(--muted); font-size:15px; }
+
+  /* TEMPLATE RESOURCES */
+  .templates-section {
+    background:linear-gradient(135deg,#0a1f14,#0d1a0e);
+    border:1px solid rgba(46,158,98,0.25); border-radius:4px;
+    padding:36px; margin:40px 0;
+  }
+  .templates-section h3 {
+    font-family:'Bricolage Grotesque',sans-serif;
+    font-size:22px; font-weight:700; margin-bottom:8px; color:var(--white);
+  }
+  .templates-section p.ts-sub {
+    font-size:16px; color:var(--muted); font-style:italic; margin-bottom:24px; line-height:1.6;
+  }
+  .templates-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; }
+  .template-link {
+    background:rgba(255,255,255,0.03); border:1px solid var(--border-dim);
+    border-radius:4px; padding:16px 18px;
+    text-decoration:none; display:block; transition:border-color 0.2s;
+  }
+  .template-link:hover { border-color:var(--green-bright); }
+  .tl-type {
+    font-family:'Bricolage Grotesque',sans-serif;
+    font-size:10px; font-weight:700; letter-spacing:2px;
+    text-transform:uppercase; color:var(--green-bright); margin-bottom:6px;
+  }
+  .tl-name { font-family:'Bricolage Grotesque',sans-serif; font-size:15px; font-weight:700; color:var(--white); margin-bottom:4px; }
+  .tl-desc { font-size:13.5px; color:var(--muted); line-height:1.55; }
+
+  /* CV SKILLS SECTION */
+  .cv-section {
+    background:linear-gradient(135deg,#0b1f0e,#091508);
+    border:2px solid var(--green-bright); border-radius:4px;
+    padding:48px; margin:64px 0 0;
+  }
+  .cv-section .cv-top {
+    display:flex; align-items:flex-start; gap:20px; margin-bottom:32px; flex-wrap:wrap;
+  }
+  .cv-badge-big {
+    background:var(--green-bright); color:var(--black);
+    font-family:'Bricolage Grotesque',sans-serif;
+    font-size:11px; font-weight:800; letter-spacing:3px; text-transform:uppercase;
+    padding:8px 18px; border-radius:2px; flex-shrink:0; white-space:nowrap; margin-top:4px;
+  }
+  .cv-section h2 {
+    font-family:'Bricolage Grotesque',sans-serif;
+    font-size:32px; font-weight:800; letter-spacing:-0.5px; color:var(--white);
+  }
+  .cv-section .cv-intro {
+    font-size:17px; color:var(--muted); font-style:italic; max-width:700px;
+    margin-bottom:36px; line-height:1.65;
+  }
+  .cv-weeks { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+  @media(max-width:620px){ .cv-weeks { grid-template-columns:1fr; } }
+  .cv-week {
+    background:rgba(255,255,255,0.03); border:1px solid var(--border-dim);
+    border-radius:4px; overflow:hidden;
+  }
+  .cv-week-header {
+    background:rgba(46,158,98,0.12); border-bottom:1px solid var(--border);
+    padding:14px 20px;
+    display:flex; align-items:center; gap:12px;
+  }
+  .cv-week-num {
+    width:32px; height:32px; border-radius:2px; background:var(--green);
+    color:#fff; font-family:'Bricolage Grotesque',sans-serif;
+    font-weight:800; font-size:14px; display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .cv-week-header h4 { font-family:'Bricolage Grotesque',sans-serif; font-size:15px; font-weight:700; color:var(--white); }
+  .cv-week-header span { font-size:12px; color:var(--muted); display:block; margin-top:2px; }
+  .cv-skills-list { padding:18px 20px 20px; list-style:none; }
+  .cv-skills-list li {
+    display:flex; align-items:flex-start; gap:10px;
+    padding:7px 0; border-bottom:1px solid rgba(255,255,255,0.04);
+    font-size:15px; color:var(--white); line-height:1.45;
+  }
+  .cv-skills-list li:last-child { border-bottom:none; }
+  .cv-skills-list li::before {
+    content:''; display:block; width:7px; height:7px;
+    border-radius:50%; background:var(--green-bright);
+    flex-shrink:0; margin-top:6px;
+  }
+  .cv-note {
+    background:rgba(46,158,98,0.06); border:1px solid rgba(46,158,98,0.2);
+    border-radius:4px; padding:16px 20px; margin-top:24px;
+  }
+  .cv-note p { font-size:15px; color:#c5d4c8; line-height:1.65; font-style:italic; }
+  .cv-note strong { color:var(--green-bright); font-style:normal; }
+
+  /* CLASSWORK */
+  .classwork {
+    background:var(--card); border:2px solid var(--gold);
+    border-radius:4px; padding:48px; margin-top:48px;
+  }
+  .cw-label {
+    display:inline-block; font-family:'Bricolage Grotesque',sans-serif;
+    font-size:11px; font-weight:800; letter-spacing:3px; text-transform:uppercase;
+    color:var(--gold); margin-bottom:14px;
+  }
+  .classwork h2 {
+    font-family:'Bricolage Grotesque',sans-serif;
+    font-size:32px; font-weight:800; letter-spacing:-0.5px; color:var(--white); margin-bottom:12px;
+  }
+  .cw-sub {
+    font-size:17px; color:var(--muted); font-style:italic;
+    margin-bottom:32px; max-width:680px; line-height:1.65;
+  }
+  .cw-tasks { list-style:none; }
+  .cw-tasks li {
+    display:flex; gap:16px; margin-bottom:20px; padding-bottom:20px;
+    border-bottom:1px solid rgba(255,255,255,0.05);
+  }
+  .cw-tasks li:last-child { border-bottom:none; margin-bottom:0; padding-bottom:0; }
+  .cw-num {
+    width:36px; height:36px; border-radius:2px;
+    background:rgba(201,123,42,0.2); border:1px solid var(--gold);
+    color:var(--gold); font-family:'Bricolage Grotesque',sans-serif;
+    font-weight:800; font-size:15px;
+    display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:2px;
+  }
+  .cw-text { font-size:17px; color:var(--white); line-height:1.65; }
+  .cw-text em { color:var(--muted); font-style:italic; font-size:15.5px; display:block; margin-top:5px; line-height:1.6; }
+
+  /* ASSIGNMENT */
+  .assignment {
+    background:var(--card); border:1px solid rgba(46,158,98,0.35);
+    border-radius:4px; padding:48px; margin-top:32px;
+  }
+  .a-label {
+    display:inline-block; font-family:'Bricolage Grotesque',sans-serif;
+    font-size:11px; font-weight:700; letter-spacing:3px; text-transform:uppercase;
+    color:var(--green-bright); margin-bottom:14px;
+  }
+  .assignment h2 {
+    font-family:'Bricolage Grotesque',sans-serif;
+    font-size:34px; font-weight:800; letter-spacing:-0.6px; color:var(--white); margin-bottom:12px;
+  }
+  .a-sub {
+    font-size:17px; color:var(--muted); font-style:italic;
+    margin-bottom:36px; max-width:660px; line-height:1.65;
+  }
+  .a-questions { list-style:none; }
+  .a-questions li {
+    display:flex; gap:18px; margin-bottom:24px; padding-bottom:24px;
+    border-bottom:1px solid rgba(255,255,255,0.05);
+  }
+  .a-questions li:last-child { border-bottom:none; margin-bottom:0; padding-bottom:0; }
+  .q-num {
+    width:38px; height:38px; border-radius:2px; background:var(--green); color:#fff;
+    font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:15px;
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0; margin-top:2px;
+  }
+  .q-text { font-size:17px; color:var(--white); line-height:1.65; }
+  .q-text em { color:var(--muted); font-style:italic; font-size:15.5px; display:block; margin-top:6px; line-height:1.6; }
+
+  /* SUBHEAD */
+  .subhead {
+    font-family:'Bricolage Grotesque',sans-serif;
+    font-size:24px; font-weight:700; margin:48px 0 22px;
+    color:var(--white); letter-spacing:-0.3px;
+  }
+
+  /* FOOTER */
+  .footer {
+    background:var(--black-mid); border-top:1px solid var(--border-dim);
+    padding:36px 48px; text-align:center;
+  }
+  .footer p { font-size:15px; color:var(--muted); }
+  .footer strong { color:var(--green-bright); font-weight:500; }
+
+  @media(max-width:640px){
+    .hero { padding:44px 22px 40px; }
+    .jd-banner, .client-banner { padding:20px 22px; }
+    .strategy-step { grid-template-columns:1fr; }
+    .opp-row { grid-template-columns:1fr; }
+    .classwork, .assignment, .cv-section { padding:28px 22px; }
+  }
+  ::-webkit-scrollbar { width:5px; }
+  ::-webkit-scrollbar-track { background:var(--black); }
+  ::-webkit-scrollbar-thumb { background:var(--green); border-radius:2px; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="badge">VAA Global &nbsp;&middot;&nbsp; Saturday Session 3 &nbsp;&middot;&nbsp; 2026</div>
+  <h1>Strategy Development<br><span>in Digital Marketing</span></h1>
+  <p class="subtitle">A practical, job-ready lesson on building digital marketing strategy from zero — mapped to what employers are hiring for in 2026, and applied to a real Lagos brand you will work with as a digital marketer.</p>
+  <div class="toc">
+    <a href="#strategy">Marketing Strategy</a>
+    <a href="#valueprop">Value Proposition</a>
+    <a href="#targetmarket">Target Market</a>
+    <a href="#persona">Customer Persona</a>
+    <a href="#goals">Goals and KPIs</a>
+    <a href="#onepage">One-Page Plan</a>
+    <a href="#templates">Free Templates</a>
+    <a href="#cvskills">CV Skills</a>
+    <a href="#classwork">Classwork</a>
+    <a href="#assignment">Assignment</a>
+  </div>
+</div>
+
+<!-- JOB DEMAND BANNER -->
+<div class="jd-banner">
+  <div class="jd-banner-inner">
+    <div class="jd-label">Job Market Reality</div>
+    <p>Every skill in this lesson appears directly in live digital marketing job descriptions on Indeed, LinkedIn, and Glassdoor in 2026. <strong>Digital marketing strategist roles</strong> consistently require: developing marketing strategies, defining value propositions, identifying target markets, creating customer personas, establishing KPIs, and producing marketing plans. This is the exact vocabulary of hiring managers. Learn it, use it on your CV, and speak it in interviews.</p>
+  </div>
+</div>
+
+<!-- CLIENT BANNER -->
+<div class="client-banner">
+  <div class="client-banner-inner">
+    <div class="client-pill">Live Client</div>
+    <p>All case studies, examples, and projects in this lesson use <strong>CleanNow Integrated Services</strong> — a real Lagos-based professional cleaning company you will work with as a digital marketer. Visit their website at <a href="https://www.cleannow.space" target="_blank">cleannow.space</a> before class. You are not practising on a fictional brand. This is a real brief.</p>
+  </div>
+</div>
+
+<!-- ====== SECTION 1: MARKETING STRATEGY ====== -->
+<div id="strategy" class="section">
+  <div class="container">
+    <div class="section-label">
+      <div class="section-num">1</div>
+      <span class="section-tag">The Foundation</span>
+    </div>
+    <h2>How to Develop a Marketing Strategy</h2>
+    <div class="divider"></div>
+    <p class="lead">A marketing strategy is a long-term plan defining who you are targeting, what you are offering them, how you will reach them, and how you will measure success. Without one, every action is disconnected. With one, every post, email, and campaign points in the same direction.</p>
+
+    <div class="jd-callout">
+      <div class="jdc-label">What Employers Are Hiring For</div>
+      <p>"<strong>Planning, developing, implementing and managing the overall digital marketing strategy</strong>" appears in 85%+ of digital marketing manager roles on Indeed and Workable in 2026. Strategy is the senior skill — it is what separates a content creator from a digital marketing professional.</p>
+    </div>
+
+    <div class="strategy-step">
+      <div class="ss-num">1</div>
+      <div class="ss-content">
+        <h3>Understand the Business Objective First</h3>
+        <p>A marketing strategy serves a business goal. Before writing a single word, ask: what is the business trying to achieve this quarter or year? More bookings? More brand awareness? Higher-value contracts? Every marketing decision flows from the answer. Without a clear business objective, your strategy becomes a list of activities with no destination.</p>
+        <p>For CleanNow, the business objective might be: increase residential cleaning bookings in Lagos by 40% within 90 days, or establish CleanNow as the most recognised cleaning brand in the Lagos Island corridor by end of Q3.</p>
+      </div>
+    </div>
+
+    <div class="strategy-step">
+      <div class="ss-num">2</div>
+      <div class="ss-content">
+        <h3>Audit Where You Currently Stand</h3>
+        <p>Before planning where to go, you need to know where you are. A situation audit covers: What content is performing? Which channels are driving enquiries? What do competitors do well? Where are the gaps? The most common tool is a SWOT analysis.</p>
+        <div class="two-col">
+          <div class="col-card">
+            <h4>CleanNow — Internal Factors</h4>
+            <ul>
+              <li>Strengths: CAC certified, eco-friendly products, vetted professionals, satisfaction guarantee, cleaning training arm</li>
+              <li>Weaknesses: Early-stage brand with 10+ customers — needs social proof growth, Instagram and TikTok presence to build</li>
+            </ul>
+          </div>
+          <div class="col-card">
+            <h4>CleanNow — External Factors</h4>
+            <ul>
+              <li>Opportunities: Growing Lagos middle class, rising demand for post-construction and move-in cleaning in new estates, underserved pool cleaning niche</li>
+              <li>Threats: Informal cleaners quoting lower prices, established players like Mop-It, trust barriers in home-access services</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="strategy-step">
+      <div class="ss-num">3</div>
+      <div class="ss-content">
+        <h3>Choose Your Channels and Match Them to the Funnel Stage</h3>
+        <p>Different channels serve different funnel stages. Spreading thin across all channels is one of the most common early-career mistakes. Strategy means choosing where to focus — and why.</p>
+        <div class="two-col">
+          <div class="col-card">
+            <h4>CleanNow — Awareness Channels</h4>
+            <ul>
+              <li>Instagram Reels: before-and-after cleaning transformations</li>
+              <li>TikTok: "Watch us clean a post-construction site" time-lapses</li>
+              <li>X: eco-friendly cleaning tips, position as cleaning experts</li>
+              <li>WhatsApp broadcast: referral incentives to existing customers</li>
+            </ul>
+          </div>
+          <div class="col-card">
+            <h4>CleanNow — Conversion Channels</h4>
+            <ul>
+              <li>WhatsApp DM: respond to enquiries, close bookings</li>
+              <li>Website booking page (cleannow.space/booking)</li>
+              <li>Instagram DM auto-reply: "Reply BOOK to get a free quote in 10 minutes"</li>
+              <li>Google Business profile for local search</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="strategy-step">
+      <div class="ss-num">4</div>
+      <div class="ss-content">
+        <h3>Set a Budget and Timeline</h3>
+        <p>Every real marketing strategy has a budget allocation and a timeline with milestones. Even on a small budget, defining it forces prioritisation and prevents wasted spend. For CleanNow, the realistic starting point is organic-first — maximising free channels before paid ads — with a small budget allocated to boosting the top-performing Reels once patterns emerge from Week 2 data.</p>
+      </div>
+    </div>
+
+    <div class="strategy-step">
+      <div class="ss-num">5</div>
+      <div class="ss-content">
+        <h3>Define How You Will Measure Success</h3>
+        <p>A strategy without measurement criteria is impossible to evaluate or improve. Before launching, define what success looks like: is it booking enquiries, website visits, Instagram reach, or WhatsApp responses? This is where KPIs come in — covered fully in Section 5.</p>
+      </div>
+    </div>
+
+    <div class="case-study">
+      <h4>Building CleanNow's Initial Digital Marketing Strategy from Scratch</h4>
+      <p>CleanNow currently operates from Igando, Lagos and offers six service lines: residential cleaning, office cleaning, deep cleaning, pool cleaning, post-construction cleaning, and move-in/move-out cleaning. They also offer cleaning certification training. As their digital marketer, your job is to make Lagosians aware that a trusted, certified cleaning company exists — and to convert that awareness into bookings. Here is what a structured strategy outline looks like for their first 60-day digital push.</p>
+      <div class="cs-row">
+        <div class="cs-box">
+          <div class="cs-label">Business Objective</div>
+          <p>Generate 30 new residential cleaning bookings in 60 days while building a WhatsApp enquiry pipeline of 100+ contacts</p>
+        </div>
+        <div class="cs-box">
+          <div class="cs-label">Audit Finding</div>
+          <p>Strong service offering, minimal social presence, no content strategy. The trust gap — "can I let a cleaning team into my home?" — is the primary barrier to overcome</p>
+        </div>
+        <div class="cs-box">
+          <div class="cs-label">Channel Priority</div>
+          <p>Instagram for visual proof of service quality, WhatsApp for closing bookings, Google Business for local Lagos search intent</p>
+        </div>
+        <div class="cs-box">
+          <div class="cs-label">Success Metric</div>
+          <p>30 bookings, 5-star review rate of 80%+, cost per booking under 10% of service fee, 100 WhatsApp contacts by Day 60</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== SECTION 2: VALUE PROPOSITION ====== -->
+<div id="valueprop" class="section">
+  <div class="container">
+    <div class="section-label">
+      <div class="section-num">2</div>
+      <span class="section-tag">Differentiation</span>
+    </div>
+    <h2>How to Define Your Value Proposition</h2>
+    <div class="divider"></div>
+    <p class="lead">Your value proposition is the clearest possible answer to: "Why should I choose you over every other option, including doing nothing?" It is not a tagline. It is the strategic core of why your business exists from the customer's point of view.</p>
+
+    <div class="analogy">
+      <p>Every potential customer is silently asking: <strong>"What's in it for me — specifically — and why should I trust you over the next option?"</strong> If your marketing cannot answer that in two sentences, no amount of content or ad spend will fix the conversion problem.</p>
+    </div>
+
+    <h3 class="subhead">The Value Proposition Formula</h3>
+    <table class="vp-table">
+      <thead>
+        <tr><th>Component</th><th>What It Answers</th><th>Weak Version</th><th>Strong Version</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong style="color:var(--green-bright);">Relevance</strong></td>
+          <td>How does this solve my specific problem?</td>
+          <td>"We offer cleaning services"</td>
+          <td>"We clean Lagos homes and offices so you never have to stress about it"</td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--green-bright);">Value</strong></td>
+          <td>What specific outcome do I get?</td>
+          <td>"Your space will be clean"</td>
+          <td>"Spotless results with eco-friendly products, vetted professionals, and 100% satisfaction guaranteed"</td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--green-bright);">Differentiation</strong></td>
+          <td>Why CleanNow and not someone else?</td>
+          <td>"We are the best cleaners"</td>
+          <td>"CAC-registered, insured, and certified — the only cleaning company in Lagos that guarantees a redo at no extra cost if you are not satisfied"</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="case-study">
+      <h4>Crafting CleanNow's Value Proposition — From the Website Up</h4>
+      <p>CleanNow's current website headline reads: "A Cleaner, Healthier Space Made Easy for You." That is a good start — it speaks to the customer's desire. But as their digital marketer, you need to take this further and build a value proposition that answers all three components clearly, and that can be deployed consistently across every channel.</p>
+      <div class="cs-row">
+        <div class="cs-box">
+          <div class="cs-label">Current Headline</div>
+          <p>"A Cleaner, Healthier Space Made Easy for You" — strong relevance but lacks proof and differentiation</p>
+        </div>
+        <div class="cs-box">
+          <div class="cs-label">What to Add</div>
+          <p>CAC registration, satisfaction guarantee, eco-friendly products, vetted and trained professionals — these are the differentiators that remove hesitation</p>
+        </div>
+        <div class="cs-box">
+          <div class="cs-label">Refined Proposition</div>
+          <p>"Lagos's certified cleaning professionals — eco-friendly, vetted, and satisfaction-guaranteed. Book in minutes at cleannow.space."</p>
+        </div>
+        <div class="cs-box">
+          <div class="cs-label">Trust Anchors Available</div>
+          <p>CAC certified (2025), 24/7 support, eco-friendly products, cleaning training programme — all of these support the claim</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== SECTION 3: TARGET MARKET ====== -->
+<div id="targetmarket" class="section">
+  <div class="container">
+    <div class="section-label">
+      <div class="section-num">3</div>
+      <span class="section-tag">Who You Serve</span>
+    </div>
+    <h2>How to Identify Your Target Market</h2>
+    <div class="divider"></div>
+    <p class="lead">Your target market is the specific group of people most likely to need your service, be able to pay for it, and be reachable through your channels. It is never "everyone in Lagos." The more precisely defined, the more effectively your marketing works and the lower your cost per booking.</p>
+
+    <div class="jd-callout">
+      <div class="jdc-label">What Employers Are Hiring For</div>
+      <p>Indeed's 2026 Digital Marketing Manager role requires <strong>"proven experience in social media management, lead generation, and digital marketing"</strong> with <strong>"knowledge of online marketing channels, social media platforms and trends."</strong> Underlying all of this is one skill: knowing exactly who you are speaking to. Without it, you cannot produce content that converts.</p>
+    </div>
+
+    <h3 class="subhead">CleanNow's Target Market — All Four Layers</h3>
+
+    <div class="case-study">
+      <h4>CleanNow's Full Target Market Definition Across Four Audience Layers</h4>
+      <p>Most brands define their target market at Layer 1 only — demographics — and wonder why their content underperforms. A professional digital marketer goes four layers deep. Below is the full audience definition for CleanNow, separated by primary service lines.</p>
+      <div class="cs-row">
+        <div class="cs-box">
+          <div class="cs-label">Layer 1 — Demographic</div>
+          <p>Lagos residents aged 28 to 55. Working professionals, dual-income households, business owners, estate managers, property developers. Mid-to-high income. Areas: Lekki, Victoria Island, Ikeja, Ajah, Surulere, Gbagada.</p>
+        </div>
+        <div class="cs-box">
+          <div class="cs-label">Layer 2 — Psychographic</div>
+          <p>Time-poor. Values cleanliness but lacks time to maintain it. Wants to trust the people in their space. Eco-conscious segment growing. Willing to pay for reliability and peace of mind over cheapest option.</p>
+        </div>
+        <div class="cs-box">
+          <div class="cs-label">Layer 3 — Behavioural</div>
+          <p>Searches for services on Google and WhatsApp referrals. Browses Instagram and TikTok during commute. Makes decisions based on visual proof (before/after), reviews, and a friend's recommendation.</p>
+        </div>
+        <div class="cs-box">
+          <div class="cs-label">Layer 4 — Situational</div>
+          <p>Just moved into a new apartment, hosting an event in 3 days, post-renovation dust, returning from a trip to a neglected home, managing a commercial property. These are the triggers for an immediate booking decision.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div class="col-card">
+        <h4>Segment A — Residential Homeowners and Renters</h4>
+        <ul>
+          <li>Lekki Phase 1 to 2, Ajah, Chevron corridor</li>
+          <li>Dual-income professionals with 2+ bedrooms</li>
+          <li>Weekly or bi-weekly recurring booking potential</li>
+          <li>Primary channel: Instagram, neighbour referrals</li>
+          <li>Decision trigger: New home, busy schedule, event prep</li>
+        </ul>
+      </div>
+      <div class="col-card">
+        <h4>Segment B — Property Developers and Estate Managers</h4>
+        <ul>
+          <li>Post-construction and move-in cleaning demand</li>
+          <li>High-value, high-frequency contracts</li>
+          <li>Lekki, Ibeju Lekki, Ajah development corridors</li>
+          <li>Primary channel: WhatsApp referrals, LinkedIn</li>
+          <li>Decision trigger: Project completion, handover dates</li>
+        </ul>
+      </div>
+      <div class="col-card">
+        <h4>Segment C — Office and SME Operators</h4>
+        <ul>
+          <li>Co-working spaces, SME offices, health clinics</li>
+          <li>Ikeja, VI, Yaba, Lekki office corridors</li>
+          <li>Weekly contract cleaning — steady revenue</li>
+          <li>Primary channel: Google search, referrals</li>
+          <li>Decision trigger: Lease renewal, new staff, office relaunch</li>
+        </ul>
+      </div>
+      <div class="col-card">
+        <h4>Segment D — Pool and Compound Owners</h4>
+        <ul>
+          <li>High-end residential estates: Ikoyi, VI, Lekki</li>
+          <li>Monthly or weekly maintenance contracts</li>
+          <li>Less price-sensitive, high trust barrier</li>
+          <li>Primary channel: Estate community WhatsApp groups</li>
+          <li>Decision trigger: Pool discolouration, event hosting</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== SECTION 4: CUSTOMER PERSONA ====== -->
+<div id="persona" class="section">
+  <div class="container">
+    <div class="section-label">
+      <div class="section-num">4</div>
+      <span class="section-tag">The Human Behind the Data</span>
+    </div>
+    <h2>How to Create Your Customer Persona</h2>
+    <div class="divider"></div>
+    <p class="lead">A customer persona is a fictional but data-backed representation of your ideal customer. It turns audience data into a specific person you can write for, design for, and build campaigns around. Great marketers never publish content without asking: "Would our persona respond to this?"</p>
+
+    <h3 class="subhead">Two Full CleanNow Customer Personas</h3>
+
+    <div class="persona-wrap">
+      <div class="persona-card">
+        <div class="persona-header">
+          <div class="persona-avatar">AA</div>
+          <div>
+            <h4>Adaeze Alli</h4>
+            <span>Residential Cleaning Persona &mdash; Primary</span>
+          </div>
+        </div>
+        <div class="persona-body">
+          <div class="persona-row">
+            <div class="p-label">Background</div>
+            <div class="p-val">34 years old. Marketing manager at a fintech company. Lives in a 3-bedroom flat in Chevron, Lekki with her husband and one child. Both she and her husband work full-time.</div>
+          </div>
+          <div class="persona-row">
+            <div class="p-label">Primary Goal</div>
+            <div class="p-val">Come home to a clean, ordered house without having to manage a house help or spend her weekends cleaning.</div>
+          </div>
+          <div class="persona-row">
+            <div class="p-label">Core Fear</div>
+            <div class="p-val">Letting strangers into her home who might steal, damage something, or not be trustworthy around her child. Has had a bad experience with unreliable informal cleaners before.</div>
+          </div>
+          <div class="persona-row">
+            <div class="p-label">Trigger Moment</div>
+            <div class="p-val">Her mother-in-law is visiting in two weeks. The flat needs deep cleaning. She Googles "professional home cleaning Lagos" and sees CleanNow in the results. Checks their Instagram — before-and-after content seals the decision.</div>
+          </div>
+          <div class="persona-row">
+            <div class="p-label">Objection to Overcome</div>
+            <div class="p-val">"Are these people vetted? Will my things be safe? What if I am not happy with the result?"</div>
+          </div>
+          <div class="persona-row">
+            <div class="p-label">Content That Converts Her</div>
+            <div class="p-val">Before-and-after transformation videos. "Meet our team" content showing vetted, uniformed professionals. The satisfaction guarantee stated clearly. Review from someone like her — working professional, Lagos family home.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="persona-card">
+        <div class="persona-header">
+          <div class="persona-avatar">EO</div>
+          <div>
+            <h4>Emeka Okonkwo</h4>
+            <span>Post-Construction Persona &mdash; High Value</span>
+          </div>
+        </div>
+        <div class="persona-body">
+          <div class="persona-row">
+            <div class="p-label">Background</div>
+            <div class="p-val">44 years old. Property developer. Builds and sells 4 to 8 residential units per year across Lekki and Ajah. Manages 3 ongoing projects simultaneously.</div>
+          </div>
+          <div class="persona-row">
+            <div class="p-label">Primary Goal</div>
+            <div class="p-val">Have units cleaned to a showcase standard quickly after construction so he can begin viewings and close sales without delay.</div>
+          </div>
+          <div class="persona-row">
+            <div class="p-label">Core Fear</div>
+            <div class="p-val">A cleaning crew that arrives late, misses details, needs to be micromanaged, or does not have industrial equipment for post-construction dust and debris.</div>
+          </div>
+          <div class="persona-row">
+            <div class="p-label">Trigger Moment</div>
+            <div class="p-val">His last project's handover was delayed 10 days because the informal cleaners he used needed multiple return visits. He asks a fellow developer in his WhatsApp group for a reliable recommendation. CleanNow comes up.</div>
+          </div>
+          <div class="persona-row">
+            <div class="p-label">Objection to Overcome</div>
+            <div class="p-val">"Can they handle post-construction work at scale? Are they insured if something breaks? Can they work to my timeline?"</div>
+          </div>
+          <div class="persona-row">
+            <div class="p-label">Content That Converts Him</div>
+            <div class="p-val">Post-construction before-and-after videos, CAC certification prominently displayed, case study of a completed project with timeline and result, and a direct WhatsApp number for a fast quote — not a form.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== SECTION 5: GOALS AND KPIs ====== -->
+<div id="goals" class="section">
+  <div class="container">
+    <div class="section-label">
+      <div class="section-num">5</div>
+      <span class="section-tag">Measuring What Matters</span>
+    </div>
+    <h2>How to Establish Goals and Develop KPIs</h2>
+    <div class="divider"></div>
+    <p class="lead">Goals define where you want to go. KPIs — Key Performance Indicators — define how you will know you are getting there. Without both, marketing becomes activity without accountability. Every employer in 2026 expects you to know the difference between a vanity metric and a real KPI.</p>
+
+    <div class="jd-callout">
+      <div class="jdc-label">What Employers Are Hiring For</div>
+      <p>Workable's 2026 template states: <strong>"Measure and report performance of all digital marketing campaigns and assess against goals (ROI and KPIs)."</strong> Upwork's Digital Strategist template adds: <strong>"Use KPIs and metrics such as NPS, CSAT, and engagement rates to measure campaign success and provide actionable feedback."</strong> Knowing your KPIs is not optional — it is the baseline of any professional digital marketing role.</p>
+    </div>
+
+    <h3 class="subhead">SMART Goals — Applied to CleanNow</h3>
+
+    <div class="goal-grid">
+      <div class="goal-card" data-letter="S">
+        <h4>Specific</h4>
+        <p>Names exactly what will be achieved.</p>
+        <div class="goal-ex">Not "grow CleanNow's Instagram." Yes: "grow @cleannow_ng from 200 to 2,000 followers within 90 days."</div>
+      </div>
+      <div class="goal-card" data-letter="M">
+        <h4>Measurable</h4>
+        <p>Trackable with a number or percentage.</p>
+        <div class="goal-ex">Not "increase enquiries." Yes: "generate 50 WhatsApp booking enquiries per month via Instagram."</div>
+      </div>
+      <div class="goal-card" data-letter="A">
+        <h4>Achievable</h4>
+        <p>Ambitious but realistic given available resources.</p>
+        <div class="goal-ex">Not "500 bookings in 30 days." Yes: "close 15 paid bookings in the first 45 days of the digital campaign."</div>
+      </div>
+      <div class="goal-card" data-letter="R">
+        <h4>Relevant</h4>
+        <p>Directly tied to a real business outcome.</p>
+        <div class="goal-ex">Not "get 10,000 TikTok views." Yes: "convert TikTok viewers into WhatsApp enquiries at a 2% rate per video."</div>
+      </div>
+      <div class="goal-card" data-letter="T">
+        <h4>Time-Bound</h4>
+        <p>Has a specific deadline.</p>
+        <div class="goal-ex">Not "improve our response time." Yes: "achieve a 100% WhatsApp enquiry response time under 10 minutes by Week 2."</div>
+      </div>
+    </div>
+
+    <h3 class="subhead">CleanNow KPIs — Real vs Vanity</h3>
+
+    <table class="kpi-table">
+      <thead>
+        <tr><th>Metric</th><th>Type</th><th>Why It Matters or Does Not</th><th>CleanNow Target</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Instagram Followers</strong></td>
+          <td><span class="kpi-vanity">Vanity</span></td>
+          <td>Followers do not clean homes or pay invoices. A 500-follower account converting 5% to bookings outperforms 50,000 followers at 0%.</td>
+          <td>Track alongside DM enquiry rate, not in isolation</td>
+        </tr>
+        <tr>
+          <td><strong>Post Likes</strong></td>
+          <td><span class="kpi-vanity">Vanity</span></td>
+          <td>Likes signal content resonance but not intent. Before-and-after content gets 10x saves vs likes — saves are the real signal of booking intent.</td>
+          <td>Prioritise saves and profile visits over like counts</td>
+        </tr>
+        <tr>
+          <td><strong>WhatsApp Enquiry Volume</strong></td>
+          <td><span class="kpi-good">Real KPI</span></td>
+          <td>Directly measures TOFU-to-MOFU transition. Every enquiry is a potential booking. This is the first revenue signal.</td>
+          <td>Target 50+ WhatsApp enquiries per month by Day 60</td>
+        </tr>
+        <tr>
+          <td><strong>Enquiry-to-Booking Conversion Rate</strong></td>
+          <td><span class="kpi-good">Real KPI</span></td>
+          <td>The single most important metric for CleanNow. If 50 people enquire and only 2 book, the sales process — not the content — is the leak.</td>
+          <td>Target 40%+ of enquiries converted to confirmed bookings</td>
+        </tr>
+        <tr>
+          <td><strong>Cost Per Booking (CAC)</strong></td>
+          <td><span class="kpi-good">Real KPI</span></td>
+          <td>Total marketing spend divided by number of bookings. If acquiring one booking costs more than the booking revenue, the model fails.</td>
+          <td>CAC must stay below 15% of average booking fee</td>
+        </tr>
+        <tr>
+          <td><strong>Repeat Booking Rate</strong></td>
+          <td><span class="kpi-good">Real KPI</span></td>
+          <td>Cleaning is a recurring service. A high repeat booking rate means content and service quality are both working — and reduces future acquisition cost.</td>
+          <td>Target 50%+ of first-time customers booking a second service within 30 days</td>
+        </tr>
+        <tr>
+          <td><strong>Review and Referral Rate</strong></td>
+          <td><span class="kpi-good">Real KPI</span></td>
+          <td>Referrals are the highest-converting and lowest-cost lead source in a trust-sensitive service category like home cleaning. Track and incentivise.</td>
+          <td>Target 1 referral generated for every 3 completed jobs by Month 2</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ====== SECTION 6: ONE-PAGE PLAN ====== -->
+<div id="onepage" class="section">
+  <div class="container">
+    <div class="section-label">
+      <div class="section-num">6</div>
+      <span class="section-tag">Putting It All Together</span>
+    </div>
+    <h2>How to Draft a One-Page Marketing Plan</h2>
+    <div class="divider"></div>
+    <p class="lead">A one-page marketing plan compresses your full strategy into a single document that everyone on a team can reference and act on. It forces clarity. If your plan cannot fit on one page, it is not clear enough yet. This is one of the most in-demand deliverables in digital marketing roles — and the one most junior marketers cannot produce.</p>
+
+    <div class="opp-wrap">
+      <div class="opp-header">
+        <h4>CleanNow Integrated Services — 60-Day Digital Marketing Plan</h4>
+        <span>One-Page Strategy Document &nbsp;&middot;&nbsp; 2026</span>
+      </div>
+      <div class="opp-body">
+        <div class="opp-row">
+          <div class="opp-field">Business Objective</div>
+          <div class="opp-value">Generate 30 confirmed cleaning bookings within 60 days and build a WhatsApp leads pipeline of 100+ warm contacts. Secondary: establish CleanNow as the most visible certified cleaning brand on Lagos Instagram. <em>Website: cleannow.space</em></div>
+        </div>
+        <div class="opp-row">
+          <div class="opp-field">Target Audience</div>
+          <div class="opp-value">Primary: Working professionals aged 28 to 45 in Lekki, VI, Ikeja, and Chevron with 2+ bedroom homes, too busy to clean consistently, and willing to pay for trust and reliability. Secondary: Property developers and estate managers in Lekki and Ajah needing post-construction and move-in cleaning.</div>
+        </div>
+        <div class="opp-row">
+          <div class="opp-field">Value Proposition</div>
+          <div class="opp-value">Lagos's CAC-certified, eco-friendly cleaning professionals — vetted staff, satisfaction guaranteed, and available 24/7. Book in minutes at cleannow.space. No stress, no guessing, no do-overs at your expense.</div>
+        </div>
+        <div class="opp-row">
+          <div class="opp-field">Channel Strategy</div>
+          <div class="opp-value">
+            <strong>TOFU:</strong> Instagram: 4 posts per week (2 Reels, 2 carousels) — before-and-after transformations, team introductions, eco-cleaning tips. TikTok: 2 time-lapse clean videos per week.<br>
+            <strong>MOFU:</strong> Instagram Stories with WhatsApp CTA ("DM QUOTE for a free estimate"), referral programme — "Refer a friend, get 10% off your next booking."<br>
+            <strong>BOFU:</strong> WhatsApp fast-response system (under 10 minutes), booking link in bio, Google Business profile with reviews strategy.
+          </div>
+        </div>
+        <div class="opp-row">
+          <div class="opp-field">Content Calendar</div>
+          <div class="opp-value">Week 1 to 2: Pure value content — cleaning tips, eco-product education, team showcase. No selling. Week 3: Introduce offers — first-time booking discount. Week 4 to 6: Push testimonials and reviews from early customers. Week 7 to 8: Referral campaign launch and post-construction segment push.</div>
+        </div>
+        <div class="opp-row">
+          <div class="opp-field">Budget Allocation</div>
+          <div class="opp-value">60% content production (video editing, photography). 30% paid Instagram boosts on top-performing Reels (Week 3 onwards). 10% tools and scheduling. <em>CAC target: under 15% of average booking fee. Review and reallocate at Day 30.</em></div>
+        </div>
+        <div class="opp-row">
+          <div class="opp-field">KPIs and Targets</div>
+          <div class="opp-value">
+            Instagram reach per Reel: 5,000+ &nbsp;&middot;&nbsp;
+            WhatsApp enquiries/month: 50+ &nbsp;&middot;&nbsp;
+            Enquiry-to-booking conversion: 40%+ &nbsp;&middot;&nbsp;
+            Confirmed bookings by Day 60: 30 &nbsp;&middot;&nbsp;
+            Repeat booking rate: 50%+ &nbsp;&middot;&nbsp;
+            Google reviews by Day 60: 15+
+          </div>
+        </div>
+        <div class="opp-row">
+          <div class="opp-field">Review Checkpoint</div>
+          <div class="opp-value">Day 30 mid-campaign review: if enquiries below 25, audit the content-to-CTA gap and add a Story push. If conversion rate below 30%, audit the WhatsApp response process. Full post-campaign review within 7 days of Day 60 with written performance report.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== FREE TEMPLATES ====== -->
+<div id="templates" class="section" style="border:none; padding-bottom:0;">
+  <div class="container">
+    <div class="section-label">
+      <div class="section-num" style="background:var(--gold);">+</div>
+      <span class="section-tag" style="color:var(--gold);">Free Resources</span>
+    </div>
+    <h2>Free Marketing Plan Templates</h2>
+    <div class="divider" style="background:var(--gold);"></div>
+    <p class="lead">Study these before you write your own plan. Seeing how professionals structure a marketing document is part of learning how to write one. All links below are free to download — no card required.</p>
+
+    <div class="templates-section">
+      <h3>Download and Study These Templates</h3>
+      <p class="ts-sub">Review at least two of these before your assignment. Notice how each one structures goals, audience, channels, and KPIs. Then build your own from scratch — do not copy any of them.</p>
+      <div class="templates-grid">
+        <a class="template-link" href="https://offers.hubspot.com/marketing-plan-template" target="_blank">
+          <div class="tl-type">PDF + Word &nbsp;&middot;&nbsp; HubSpot</div>
+          <div class="tl-name">HubSpot Free Marketing Plan Template</div>
+          <div class="tl-desc">Industry-standard template used globally. Covers goals, personas, budget, channels, and KPIs. One of the most referenced in job portfolios.</div>
+        </a>
+        <a class="template-link" href="https://www.smartinsights.com/digital-marketing-strategy/digital-marketing-strategy-and-planning-template/" target="_blank">
+          <div class="tl-type">PDF + Word &nbsp;&middot;&nbsp; Smart Insights</div>
+          <div class="tl-name">Smart Insights RACE Digital Marketing Plan</div>
+          <div class="tl-desc">Uses the RACE planning framework (Reach, Act, Convert, Engage). One of the most comprehensive free digital strategy templates available.</div>
+        </a>
+        <a class="template-link" href="https://bigorange.marketing/one-page-marketing-plan/" target="_blank">
+          <div class="tl-type">Free Download &nbsp;&middot;&nbsp; BigOrange</div>
+          <div class="tl-name">One-Page Marketing Plan 2026 Edition</div>
+          <div class="tl-desc">Specifically designed for the one-page format. Includes a free explainer webinar. Great visual reference for what the final deliverable should look like.</div>
+        </a>
+        <a class="template-link" href="https://plangrowlab.com/downloads/marketing-plan-template" target="_blank">
+          <div class="tl-type">PDF / Google Docs / Word &nbsp;&middot;&nbsp; Plangrowlab</div>
+          <div class="tl-name">Plangrowlab Marketing Plan Template</div>
+          <div class="tl-desc">Clean, practical template covering audience, goals, budget, channels, and KPIs. Available in three editable formats. Good starting point for building your own.</div>
+        </a>
+        <a class="template-link" href="https://www.template.net/business/plan-templates/marketing-plan-sample/" target="_blank">
+          <div class="tl-type">Multiple Formats &nbsp;&middot;&nbsp; Template.net</div>
+          <div class="tl-name">30+ Marketing Plan Samples Collection</div>
+          <div class="tl-desc">Gallery of 30+ plan formats — from one-page to full SWOT-anchored plans. Useful for seeing different approaches to the same brief.</div>
+        </a>
+        <a class="template-link" href="https://powerslides.com/powerpoint-marketing/online-marketing-templates/one-page-marketing-plan-template/" target="_blank">
+          <div class="tl-type">PowerPoint &nbsp;&middot;&nbsp; Powerslides</div>
+          <div class="tl-name">One-Page Marketing Plan PowerPoint Template</div>
+          <div class="tl-desc">For those who prefer to present their plan visually. A slide-based one-page format — useful if a client or employer prefers a deck over a document.</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== CV SKILLS ====== -->
+<div id="cvskills" class="section" style="border:none; padding-top:64px; padding-bottom:0;">
+  <div class="container">
+    <div class="cv-section">
+      <div class="cv-top">
+        <div class="cv-badge-big">Add to Your CV Now</div>
+        <h2>Skills You Have Earned After Today's Class</h2>
+      </div>
+      <p class="cv-intro">You have now completed two full weeks of professional digital marketing training. Every skill listed below can be added to your CV, LinkedIn profile, and job applications — today. Use the exact phrasing shown here, because this is the language employers and clients search for in 2026.</p>
+
+      <div class="cv-weeks">
+        <div class="cv-week">
+          <div class="cv-week-header">
+            <div class="cv-week-num">W2</div>
+            <div>
+              <h4>Week 2 Skills</h4>
+              <span>The Digital Marketing Framework</span>
+            </div>
+          </div>
+          <ul class="cv-skills-list">
+            <li>Digital Marketing Fundamentals</li>
+            <li>Marketing Funnel Management (TOFU / MOFU / BOFU)</li>
+            <li>Buyer Journey Mapping</li>
+            <li>Customer Touchpoint Design</li>
+            <li>Content Strategy and Planning</li>
+            <li>Social Media Marketing (Instagram, X, WhatsApp)</li>
+            <li>WhatsApp Community Building and Management</li>
+            <li>Lead Generation</li>
+            <li>Conversion Rate Optimisation</li>
+            <li>Funnel Leak Analysis and Diagnosis</li>
+            <li>Drip Messaging and Nurture Sequences</li>
+            <li>Audience Engagement Strategy</li>
+          </ul>
+        </div>
+
+        <div class="cv-week">
+          <div class="cv-week-header">
+            <div class="cv-week-num">W3</div>
+            <div>
+              <h4>Week 3 Skills</h4>
+              <span>Strategy Development in Digital Marketing</span>
+            </div>
+          </div>
+          <ul class="cv-skills-list">
+            <li>Digital Marketing Strategy Development</li>
+            <li>Value Proposition Design</li>
+            <li>Target Market Identification and Segmentation</li>
+            <li>Customer Persona Creation</li>
+            <li>Audience Research and Psychographic Analysis</li>
+            <li>SMART Goal Setting</li>
+            <li>KPI Development and Performance Tracking</li>
+            <li>One-Page Marketing Plan Development</li>
+            <li>SWOT Analysis</li>
+            <li>Integrated Campaign Planning</li>
+            <li>Marketing Budget Allocation</li>
+            <li>Digital Analytics and ROI Reporting</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cv-note">
+        <p>On your CV, list these under a <strong>"Skills"</strong> section or <strong>"Digital Marketing Skills"</strong> heading. On LinkedIn, add each one as a skill and ask your classmates or VAA Global to endorse them — endorsements increase your profile visibility in recruiter searches. When applying for roles, scan the job description and mirror the exact terminology from this list that appears in the job posting. <strong>Language match increases your chances of passing applicant tracking systems (ATS) by over 40%.</strong></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== CLASSWORK ====== -->
+<div id="classwork" class="section" style="border:none; padding-top:64px; padding-bottom:0;">
+  <div class="container">
+    <div class="classwork">
+      <span class="cw-label">In-Class Activity &nbsp;&middot;&nbsp; 45 Minutes &nbsp;&middot;&nbsp; CleanNow Brief</span>
+      <h2>Classwork — Strategy Session for CleanNow</h2>
+      <p class="cw-sub">You are now working as a digital marketer on the CleanNow account. This is a live brief. Complete all four tasks in class — you will present your outputs to the group before the session ends. Visit <a href="https://www.cleannow.space" target="_blank" style="color:var(--gold);">cleannow.space</a> now if you have not already.</p>
+
+      <ul class="cw-tasks">
+        <li>
+          <div class="cw-num">1</div>
+          <div class="cw-text">
+            Write CleanNow's value proposition using the three-component formula. One sentence per component — relevance, value, and differentiation. Do not copy from the website.
+            <em>Time: 10 minutes. You will read yours aloud. The class will vote on the strongest version. What makes CleanNow different from every other cleaning service in Lagos?</em>
+          </div>
+        </li>
+        <li>
+          <div class="cw-num">2</div>
+          <div class="cw-text">
+            Pick one of CleanNow's six service lines. Define its target audience using all four layers: demographic, psychographic, behavioural, and situational. Minimum two points per layer.
+            <em>Time: 10 minutes. Services: residential, office, deep cleaning, pool cleaning, post-construction, move-in/move-out. Write this as a brief paragraph, not a list.</em>
+          </div>
+        </li>
+        <li>
+          <div class="cw-num">3</div>
+          <div class="cw-text">
+            Create one customer persona for CleanNow's residential cleaning service. Give them a name, location, job, core fear, and the one piece of content that would make them book.
+            <em>Time: 10 minutes. Think about what actually stops someone in Lagos from booking a cleaning service — and what removes that barrier. That insight is your best content idea.</em>
+          </div>
+        </li>
+        <li>
+          <div class="cw-num">4</div>
+          <div class="cw-text">
+            Write three SMART marketing goals for a 30-day CleanNow Instagram campaign. For Goal 1, explicitly label each of the five SMART criteria so your understanding can be checked.
+            <em>Time: 10 minutes. Your goals must tie to a real business outcome — enquiries, bookings, or reviews. "Get more followers" alone is not a goal — it is a wish.</em>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ====== ASSIGNMENT ====== -->
+<div id="assignment" class="section" style="border:none; padding-top:32px; padding-bottom:100px;">
+  <div class="container">
+    <div class="assignment">
+      <span class="a-label">Take-Home Assignment &nbsp;&middot;&nbsp; CleanNow Full Strategy Brief</span>
+      <h2>Build CleanNow's Full Digital Marketing Strategy</h2>
+      <p class="a-sub">This is a real professional brief for a real Lagos brand. Your deliverable is a complete digital marketing strategy document for CleanNow Integrated Services (<a href="https://www.cleannow.space" target="_blank" style="color:var(--green-bright);">cleannow.space</a>). You are being assessed on strategic thinking, not surface-level effort. Study the website before you begin. Vague or generic answers will be returned for revision.</p>
+
+      <ul class="a-questions">
+        <li>
+          <div class="q-num">1</div>
+          <div class="q-text">
+            Conduct a SWOT analysis for CleanNow. Minimum three points per quadrant (Strengths, Weaknesses, Opportunities, Threats).
+            <em>Use what you can observe from their website (cleannow.space) and what you know about the Lagos cleaning market. At least one opportunity must relate to a specific digital marketing channel or trend in 2026.</em>
+          </div>
+        </li>
+        <li>
+          <div class="q-num">2</div>
+          <div class="q-text">
+            Write CleanNow's final value proposition — one paragraph of no more than 60 words. It must name the customer, the outcome, the proof, and the differentiator.
+            <em>After writing it, explain in two sentences why you chose the specific wording. What objection does it answer before the customer even asks?</em>
+          </div>
+        </li>
+        <li>
+          <div class="q-num">3</div>
+          <div class="q-text">
+            Define two distinct target market segments for CleanNow using all four layers. Segment A: residential. Segment B: your choice from the remaining service lines.
+            <em>Each segment definition should be at least 150 words. Include the situational trigger — the exact life moment that causes someone in your segment to search for a cleaning service today, not eventually.</em>
+          </div>
+        </li>
+        <li>
+          <div class="q-num">4</div>
+          <div class="q-text">
+            Create two full customer personas for CleanNow — one per segment from Task 3. Use the six-field format from today's lesson: background, primary goal, core fear, trigger moment, main objection, and content that converts them.
+            <em>Give each persona a real Lagos name, specific neighbourhood, and job title. The more specific your persona, the more powerful your strategy becomes.</em>
+          </div>
+        </li>
+        <li>
+          <div class="q-num">5</div>
+          <div class="q-text">
+            Write five SMART marketing goals for CleanNow's first 90-day digital marketing campaign. Label all five SMART criteria explicitly for Goal 1. Goals must span awareness, engagement, and conversion stages.
+            <em>At least one goal must address the post-construction or pool cleaning segment, as these are CleanNow's highest-value service lines.</em>
+          </div>
+        </li>
+        <li>
+          <div class="q-num">6</div>
+          <div class="q-text">
+            List six KPIs you would track for CleanNow's campaign. For each KPI: state whether it is a real KPI or a vanity metric, explain why in one sentence, and set a target number.
+            <em>At least one KPI must measure repeat booking behaviour. At least one must track cost efficiency. "Likes" alone as a KPI will be returned.</em>
+          </div>
+        </li>
+        <li>
+          <div class="q-num">7</div>
+          <div class="q-text">
+            Produce CleanNow's complete One-Page Marketing Plan using all eight sections from today's lesson: business objective, target audience, value proposition, channel strategy, content calendar, budget allocation, KPIs, and review checkpoint.
+            <em>This is your main deliverable. It should be professional enough to present directly to CleanNow as a client. Study at least two of the free templates provided before writing yours. Format it clearly — either as a structured document or in a table. This will form part of your portfolio.</em>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>VAA Global &nbsp;&middot;&nbsp; Saturday 3: Strategy Development in Digital Marketing &nbsp;&middot;&nbsp; 2026 &nbsp;&middot;&nbsp; <strong>vaaglobal.tech</strong></p>
+  <p style="margin-top:8px;">Submit your assignment in the WhatsApp community. Live client brief — CleanNow: <strong>cleannow.space</strong></p>
+</div>
+
+</body>
+</html>
